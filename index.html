@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript для тестировщиков - Полный учебник</title>
+    <meta name="description" content="Исчерпывающий учебник по JavaScript для автоматизации тестирования. Selenium, Cypress, Playwright, Jest - от основ до продвинутых техник.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2196f3">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA+VBMVEUhd7YheLogeLcgd7YiebgkfLklfrsmgLwohL4ph8ArisMsjMQtjsYuksgvk8oxlcsyl8wzmc40m881nNA2n9E4otM5pNQ6pdU7p9Y8qNc9qtg+q9k/rNpArttBr9xCsN1Dsd5Est9Fs+BGtOFHtuJIuONJueRKuuVLu+ZMvOdNvedOv+hPwOlQwepRwutSw+xTxO1UxO5Vxe9Wxu9XyPBYyfFZyvJay/NbzPRczfVdzvZezvdfz/hg0Plh0fpi0vti0/xj1P1k1P5l1f9m1v9n2P9o2f9p2v9q2/9r3P9s3f9t3v9u3/9v4f9w4v9x4/9y5P9z5f9/lQGPAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAONJREFUOMvNk9tOwkAURVcLtFwKFCgIiAqKF7yiiYn//0eezCPJJM+dm5lZ2S+z98xJSvJPSf4JLi7bV61rXFy2qQBaa2tQhEJrba0KYDabhiEgCGg2mxUAbTZN8wNBkGmaG20AWmuatP8JtNYUyUEYdkCSTJNNvw8wDAZJMomiNzwe+5mNcbwHx/EyG+M4jn8eXpL1XhDEcZI8vb2/ZGnm9PsDvu8BQJZltu26rn2/3w+HQ9u2XdcFgOPx+PX9Y11jHPcA4DjOycnJwcHB6enpxMTEyMjI8PDw4ODgyMjI5OTk2dnZ9fX17e3txcXFP/9fPwrPNOxKlwAAAABJRU5ErkJggg==">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">🚀 JavaScript для тестировщиков</h1>
+                <div class="header-controls">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Поиск по курсу..." class="search-input">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" title="Переключить тему">🌙</button>
+                    <div class="progress-info">
+                        <span id="progressText">0% пройдено</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h2>📚 Содержание курса</h2>
+                    <button class="sidebar-toggle" id="sidebarToggle">×</button>
+                </div>
+                <nav class="navigation" id="navigation">
+                    <!-- Navigation will be populated by JavaScript -->
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="content-area">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <a href="#" onclick="showLesson('intro')">Главная</a>
+                </div>
+
+                <div class="lesson-container" id="lessonContainer">
+                    <div class="welcome-screen">
+                        <h1>🎯 Добро пожаловать в самый полный учебник JavaScript для тестировщиков!</h1>
+                        <p class="welcome-description">
+                            Это исчерпывающее руководство содержит <strong>150+ уроков</strong> и охватывает все аспекты JavaScript 
+                            от основ до продвинутых техник автоматизации тестирования.
+                        </p>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">150+</div>
+                                <div class="stat-label">Уроков</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Примеров кода</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Практических проектов</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Разделов</div>
+                            </div>
+                        </div>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <h3>🔧 Практическая направленность</h3>
+                                <p>Все примеры связаны с реальными задачами тестирования и автоматизации</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>📱 Современные инструменты</h3>
+                                <p>Selenium, Cypress, Playwright, Jest и другие актуальные фреймворки</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>🎨 Интерактивные примеры</h3>
+                                <p>Код можно копировать, редактировать и тестировать прямо в учебнике</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>📈 Отслеживание прогресса</h3>
+                                <p>Система достижений и прогресс-трекер для мотивации обучения</p>
+                            </div>
+                        </div>
+
+                        <div class="start-learning">
+                            <button class="start-btn" onclick="showLesson('intro-js')">
+                                🚀 Начать обучение
+                            </button>
+                            <p>Выберите урок из меню слева или начните с самого начала</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
